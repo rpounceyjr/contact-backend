@@ -1,0 +1,42 @@
+[
+  {
+    "name" : {
+      "first": "Roger",
+      "middle": "Dale",
+      "last": "Pouncey"
+    },
+    "address" : {
+      "street": "12 West Glenbrooke Circle",
+      "city": "Henrico",
+      "state" : "Virginia",
+      "zip": "23229"
+    },
+    "phone": [
+      {
+        "number": "555-555-5555",
+        "type": "home"
+      }
+    ],
+    "email" : "rpounceyjr@gmail.com"
+  },
+  {
+    "name" : {
+      "first": "Brooks",
+      "middle": "West",
+      "last": "Pouncey"
+    },
+    "address" : {
+      "street": "12 West Glenbrooke Circle",
+      "city": "Henrico",
+      "state" : "Virginia",
+      "zip": "23229"
+    },
+    "phone": [
+      {
+        "number": "555-555-5556",
+        "type": "home"
+      }
+    ],
+    "email" : "brooks@gmail.com"
+  }
+]
