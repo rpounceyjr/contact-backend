@@ -1,25 +1,38 @@
 package com.rogerpouncey.contact.domain;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Validated
 @Data
 @AllArgsConstructor
 @Entity
 public class Contact {
     @Id
     @GeneratedValue Long id;
+    @Valid
     @Embedded
+    @NotNull
     private UserName name;
     @Embedded
+    @Valid
+    @NotNull
     private Address address;
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id", referencedColumnName = "id")
-    private List<Phone> phone;
+
+    @NotNull
+    private List<@Valid Phone> phone;
 
     public List<Phone> getPhone() {
         return phone;
@@ -29,6 +42,8 @@ public class Contact {
         this.phone = phone;
     }
 
+    @NotBlank
+    @Email
     @NotNull
     private String email;
 

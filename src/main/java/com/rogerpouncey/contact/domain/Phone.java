@@ -2,10 +2,12 @@ package com.rogerpouncey.contact.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Data
 @AllArgsConstructor
@@ -14,7 +16,13 @@ public class Phone {
     @Id
     @GeneratedValue
     Long phoneId;
+
+    @NotNull
+    @NotBlank
     private String number;
+
+    @NotNull
+    @NotBlank
     private String type;
 
     public Phone() {}
@@ -23,7 +31,7 @@ public class Phone {
         return phoneId;
     }
 
-    public void setPhoneId(Long id) {
+    public void setPhoneId(Long phoneId) {
         this.phoneId = phoneId;
     }
 
@@ -40,6 +48,11 @@ public class Phone {
     }
 
     public void setType(String type) {
-        this.type = type;
+
+        if(type.toLowerCase() != "cell" || type.toLowerCase() != "home" || type.toLowerCase() != "work") {
+            this.type = "home";
+        }
+        else this.type = type;
+        }
     }
-}
+

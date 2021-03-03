@@ -2,8 +2,9 @@ package com.rogerpouncey.contact.controller;
 
 import com.rogerpouncey.contact.domain.Contact;
 import com.rogerpouncey.contact.repository.ContactRepository;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class ContactController {
     }
 
     @PostMapping("/contacts")
-    Contact newContact(@RequestBody Contact newContact) {
+    Contact newContact(@Valid @RequestBody Contact newContact) {
         return repository.save(newContact);
     }
 
