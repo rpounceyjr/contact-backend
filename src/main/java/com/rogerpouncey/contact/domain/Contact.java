@@ -1,5 +1,6 @@
 package com.rogerpouncey.contact.domain;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -28,6 +29,7 @@ public class Contact {
         this.phone = phone;
     }
 
+    @NotNull
     private String email;
 
     public Contact() {}
@@ -60,7 +62,5 @@ public class Contact {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) { this.email = email; }
 }

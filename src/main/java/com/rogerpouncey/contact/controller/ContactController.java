@@ -2,6 +2,7 @@ package com.rogerpouncey.contact.controller;
 
 import com.rogerpouncey.contact.domain.Contact;
 import com.rogerpouncey.contact.repository.ContactRepository;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -32,12 +33,13 @@ public class ContactController {
     }
 
     @PutMapping("/contacts/{id}")
-    Contact replaceContact(@RequestBody Contact newContact, @PathVariable Long id) {
+    Contact replaceContact(@Valid @RequestBody Contact newContact, @PathVariable Long id) {
 
         return repository.findById(id)
                 .map(contact -> {
                     contact.setName(newContact.getName());
                     contact.setEmail(newContact.getEmail());
+                    contact.setPhone(newContact.getPhone());
                     contact.setAddress(newContact.getAddress());
                     return repository.save(contact);
                 })
