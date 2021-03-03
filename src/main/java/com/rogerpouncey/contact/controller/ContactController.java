@@ -3,7 +3,6 @@ package com.rogerpouncey.contact.controller;
 import com.rogerpouncey.contact.domain.Contact;
 import com.rogerpouncey.contact.repository.ContactRepository;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 

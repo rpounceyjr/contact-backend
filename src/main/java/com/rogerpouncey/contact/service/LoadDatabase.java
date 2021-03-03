@@ -16,8 +16,6 @@ import java.util.List;
 @Configuration
 class LoadDatabase {
 
-    private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
-
     @Bean
     CommandLineRunner initDatabase(ContactRepository repository) {
 

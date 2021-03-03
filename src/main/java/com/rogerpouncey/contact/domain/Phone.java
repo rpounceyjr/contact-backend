@@ -50,7 +50,7 @@ public class Phone {
     public void setType(String type) {
 
         if(type.toLowerCase() != "cell" || type.toLowerCase() != "home" || type.toLowerCase() != "work") {
-            this.type = "home";
+            this.type = "cell";
         }
         else this.type = type;
         }

@@ -2,10 +2,9 @@ package com.rogerpouncey.contact.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Embeddable;
-import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -13,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Embeddable
 public class Address {
+
     @NotBlank
     @NotNull
     private String street;
@@ -25,6 +25,7 @@ public class Address {
     @NotNull
     private String state;
 
+    @Digits(integer=5, fraction=0)
     @NotBlank
     @NotNull
     private String zip;
